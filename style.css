@@ -1,0 +1,454 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  height: 100vh;
+}
+
+.intro-container {
+  position: fixed; /* Isso mantém a introdução na camada superior */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(imagem-project/vecteezy_save-earth-environment-day-poster-go-green-background-images_22448337.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: white;
+  z-index: 9999; /* Garante que a introdução esteja acima de outros conteúdos */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.intro-message {
+  text-align: center;
+  margin-bottom: 80px;
+  opacity: 0;
+  transform: translateY(-50px); /* Começa acima da posição original */
+  animation: slideDownMessage 3s ease-in-out forwards; /* Aumentando a duração */
+}
+
+@keyframes slideDownMessage {
+  0% {
+    transform: translateY(-50px); /* Posição inicial acima */
+    opacity: 0; /* Início invisível */
+  }
+  100% {
+    transform: translateY(0); /* Posição final */
+    opacity: 1; /* Tornar visível */
+  }
+}
+
+@keyframes fadeInMessage {
+  to {
+    opacity: 1; /* Alcança total opacidade */
+  }
+}
+
+/* Estilos para o contêiner da estrada */
+.intro-road-container {
+  position: relative;
+  width: 80%;
+  height: 150px;
+  display: flex;
+  align-items: center;
+}
+
+.road {
+  width: 100%;
+  height: 30px;
+  margin-bottom: 63px;
+  background-color: #935C12;
+  position: relative;
+}
+
+.truck1{
+  width: 60px;
+  height: 90px;
+  background: url('imagem-project/truck.gif') no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: -10px;
+  left: -100px;
+  animation: moveTruckIntro 6s ease-in-out forwards; /* Aumentando a duração */
+}
+
+@keyframes moveTruckIntro {
+  from {
+    left: -100px;
+  }
+  to {
+    left: calc(100% - 60px);
+  }
+}
+
+/* Estilo para as árvores */
+.trees {
+  position: absolute;
+  width: 100%;
+  height: 90px;
+  left: -110px;
+  top: -30px; /* Ajusta para estar logo abaixo do caminhão */
+}
+
+.tree {
+  width: 50px;
+  height: 80px;
+  position: absolute;
+  background: url('http://imagensemoldes.com.br/wp-content/uploads/2018/06/%C3%81rvores-%C3%81rvore-PNG.png') no-repeat;
+  background-size: contain;
+  opacity: 0;
+  animation: fadeInTree 3s ease-in-out forwards; /* Aumentando a duração */
+}
+
+@keyframes fadeInTree {
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+
+
+
+nav{
+  display: flex;
+  align-items: center;
+  color: white;
+  background-color: #212529;
+}
+#titulo-principal{
+  display: flex;
+  font-size: 25PX;
+  padding-left: 130px;
+}
+
+
+/* Inicio agribô */
+
+.agribo {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url(imagem-project/7d6b5732171881.5671d742d3351.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: white;
+}
+
+/* Estilizando a caixa */
+.container {
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.plant-box {
+  background: linear-gradient(145deg, #2d572c, #1f3e1e);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 320px;
+  width: 100%;
+  margin-top: 100px;
+  margin-left: 300px;
+  margin-bottom: 50px;
+}
+
+/* Label da pergunta */
+label {
+  font-size: 1.2rem;
+  color: #f1f1f1;
+  margin-bottom: 10px;
+}
+
+/* Input de número */
+#tree-input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #1c281d;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+  outline: none;
+  margin-bottom: 10px;
+}
+#name-input{
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #1c281d;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+  outline: none;
+  margin-bottom: 10px;
+}
+
+#tree-input::placeholder {
+  color: #aaa;
+}
+
+/* Botão de plantar */
+#plant-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+#plant-button:hover {
+  background-color: #3e8e41;
+}
+.agroPai{
+  display: flex;
+}
+#titulo-1{
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.message {
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(20px); /* Começa 20px abaixo */
+  margin-top: 10px; /* Espaço acima da mensagem */
+}
+
+.message.show {
+  opacity: 1;
+  transform: translateY(0); /* Volta à posição original */
+}
+.progress-bar {
+  width: 600px;
+  height: 30px;
+  top: 320px;
+  right: 230px;
+  background: linear-gradient(to right, red, yellow, green);
+  border-radius: 15px;
+  position: relative;
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+/* Caminhão posicionado acima da barra */
+.truck {
+  width: 60px;
+  height: 90px;
+  background: url('imagem-project/truck2.gif') no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: -15px; /* Posição para deixar o caminhão acima da barra */
+  left: 0;
+  transition: left 0.5s ease; /* Animação para o movimento suave */
+  z-index: 1;
+}
+
+#titulo-2{
+  color: rgb(255, 255, 255);
+  width: 35%;
+  font-size: 30px;
+  border-radius: 5px;
+  margin-left: 430px;
+  text-align: center;
+}
+.carousel {
+  width: 80%; /* Ajuste conforme necessário */
+  max-width: 600px; /* Tamanho máximo */
+  margin: auto; /* Centraliza o carrossel */
+}
+.carousel-inner img {
+  border-radius: 5px;
+  width: auto; /* Mantém a largura original */
+  height: auto; /* Mantém a altura original */
+  max-width: 100%; /* Limita a largura máxima */
+  max-height: 100%; /* Limita a altura máxima */
+}
+.custom-carousel {
+  width: 80%; /* Ajuste conforme necessário */
+  margin: auto; /* Centraliza */
+}
+.carousel {
+  padding: 20px; /* Adiciona espaço ao redor do carrossel */
+}
+
+.custom-carousel .carousel-inner img {
+  border: 2px solid #28a745; /* Borda verde nas imagens */
+  border-radius: 5px; /* Bordas arredondadas nas imagens */
+}
+
+.custom-carousel .carousel-control-prev-icon,
+.custom-carousel .carousel-control-next-icon {
+  background-color: #28a745; /* Cor de fundo dos controles */
+  border-radius: 50%; /* Controles arredondados */
+}
+.mensagem-lv {
+  position: absolute;
+  top: 340px;
+  left: 700px;
+  background-color: #e0f7e4; /* Tom suave de verde para remeter à natureza */
+  color: #2d6a4f; /* Verde escuro para contrastar */
+  width: 23%; /* Definir largura fixa */
+  padding: 20px; /* Espaçamento interno */
+  text-align: center;
+  border: 2px solid #40916c; /* Borda verde escura */
+  border-radius: 15px; /* Bordas arredondadas */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  font-family: 'Arial', sans-serif; /* Fonte limpa e moderna */
+}
+
+#xp-level {
+  font-size: 1.2rem; /* Tamanho de texto maior para o nível de XP */
+  font-weight: bold; /* Deixar o nível em negrito */
+  margin-bottom: 10px; /* Espaçamento abaixo do nível */
+}
+
+#level-message {
+  font-size: 1rem; /* Tamanho menor para a mensagem */
+  color: #1b4332; /* Verde ainda mais escuro para a mensagem */
+}
+#icon-caixa{
+  position: absolute;
+  left: 270px;
+  bottom: 98px;
+}
+.message-box {
+  position: absolute;
+  background-color: #fff;
+  border: 2px solid #000;
+  border-radius: 10px;
+  top: 220px;
+  left: 900px;
+  padding: 10px 20px;
+  width: 250px;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  color: #333;
+  text-align: center;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  margin: 50px auto; /* Centraliza horizontalmente */
+}
+
+/* Criando a seta na parte inferior */
+.message-box::after {
+  content: '';
+  position: absolute;
+  bottom: -20px; /* Alinha a seta para baixo */
+  left: 20%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 20px solid #fff; /* Define a cor da seta como a do fundo */
+  border-top-color: inherit;
+  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.2));
+}
+#total-trees{
+  margin-top:10px;
+}
+#contador{
+  background-color: #e0f7e4; /* Tom suave de verde para remeter à natureza */
+  color: #2d6a4f; /* Verde escuro para contrastar */
+  width: 30%;
+  padding: 10px; /* Espaçamento interno */
+  text-align: center;
+  border: 2px solid #40916c; /* Borda verde escura */
+  border-radius: 15px; /* Bordas arredondadas */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  margin-left: 65px;
+}
+#carouselNiveis {
+  position: absolute;
+  left: 680px;
+  top: 530px;
+  max-width: 450px; /* Ajuste o tamanho do carrossel */
+  margin: auto; /* Centraliza o carrossel na tela */
+}
+
+.caixa-level {
+  border: solid 2px black;
+  background-color: #e0f7e4;;
+  border-radius: 10px; 
+  padding: 27px;
+  text-align: center;
+  transition: transform 0.3s; 
+}
+
+.caixa-level h3 {
+  margin: 5px 0;
+  font-family: 'Arial', sans-serif; 
+  color: #333; 
+  font-size: 18px; 
+}
+
+
+
+
+/* SobreAgribô */
+
+.SobreAgribô{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url(imagem-project/robotica-educacional.webp);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: white;
+  padding: 100px;
+}
+#titulo-3{
+  width: 55%;
+  text-align: center;
+  padding-bottom: 30px;
+}
+.text-cr{
+  display:flex;
+}
+#text-agribo{
+  font-size: 20px;
+  width: 80%;
+  text-align: justify;
+}
+
+
+/* estilização da section sobreEquipe  */
+.sobreEquipe{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(imagem-project/hackers-quebrando-senha-forte-e-verificando-o-codigo-ransomware-na-tela-do-computador-criminosos-executando-software-malicioso-para-invadir-o-servidor-de-banco-de-dados-e-roubar-informacoes-de-p.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  color: white;
+}
+.pai-quemSomos{
+  display: flex;
+  justify-content: center;
+  padding-top: 10%;
+  padding-bottom: 7%;
+}
+#quemSomos{
+  padding-left: 5%;
+  width: 50%;
+}
+#imagemGrupo{
+  padding-left: 3%;
+}
+
+/* Estilos para garantir que as sections estejam empilhadas corretamente */
+.sobreEquipe {
+  padding: 20px 0;
+}
+
+.sobreEquipe img {
+  display: block;
+  margin: 0 auto; /* Centraliza a imagem */
+}
+/* fim sobre a equipe */
+
