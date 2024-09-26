@@ -259,18 +259,22 @@ function toggleHeart(heartElement) {
     // Atualiza o contador
     const heartCountElement = document.getElementById('heart-count');
     let currentCount = parseInt(heartCountElement.innerText, 10);
-    
+
+    // Verifica se o coração foi preenchido ou desmarcado
     if (heartElement.classList.contains('filled')) {
         currentCount++;
     } else {
         currentCount--;
     }
-    
+
+    // Certifique-se de que o contador não fique negativo
+    currentCount = Math.max(currentCount, 0);
     heartCountElement.innerText = currentCount;
 
     // Salva o contador no localStorage
     localStorage.setItem('heartCount', currentCount);
 }
+
 
 // Função para carregar o contador do localStorage
 function loadHeartCount() {
