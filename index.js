@@ -127,6 +127,20 @@ const carousel = document.querySelector('.feedback-carousel');
 let scrollAmount = 0;
 let selectedCard = null; // Variável para armazenar o card selecionado para deletar
 
+// A: Configuração do Firebase
+const firebaseConfig = {
+    apiKey: "SUA_API_KEY",
+    authDomain: "SEU_PROJETO.firebaseapp.com",
+    projectId: "SEU_PROJETO",
+    storageBucket: "SEU_PROJETO.appspot.com",
+    messagingSenderId: "SENDER_ID",
+    appId: "APP_ID"
+};
+
+// Inicializar Firebase
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
 function scrollCarousel() {
     const maxScroll = carousel.scrollWidth - carousel.clientWidth;
     scrollAmount += 1;
@@ -174,7 +188,7 @@ function verifyAdminPassword() {
 
     if (enteredPassword === adminPassword) {
         selectedCard.remove();
-        removeFeedbackFromStorage(selectedCard);
+        removeFeedbackFromFirestore(selectedCard);
         hideAdminPasswordForm();
         selectedCard = null; // Reseta a seleção
     } else {
@@ -203,8 +217,8 @@ function addFeedback() {
 
     carousel.appendChild(newCard);
 
-    // Salvar o feedback no localStorage
-    saveFeedbackToStorage({ commentText, rating, name });
+    // B: Salvar feedback no Firestore
+    saveFeedbackToFirestore({ commentText, rating, name });
 
     // Limpar o formulário
     document.getElementById('comment-text').value = '';
@@ -214,82 +228,62 @@ function addFeedback() {
     hideFeedbackForm();
 }
 
-function saveFeedbackToStorage(feedback) {
-    let feedbacks = JSON.parse(localStorage.getItem('feedbacks')) || [];
-    feedbacks.push(feedback);
-    localStorage.setItem('feedbacks', JSON.stringify(feedbacks));
-}
-
-function loadFeedbackFromStorage() {
-    const feedbacks = JSON.parse(localStorage.getItem('feedbacks')) || [];
-    feedbacks.forEach(feedback => {
-        const newCard = document.createElement('div');
-        newCard.className = 'feedback-card';
-        newCard.innerHTML = `
-            <p>${feedback.commentText}</p>
-            <div class="stars">${'★'.repeat(feedback.rating)}${'☆'.repeat(5 - feedback.rating)}</div>
-            <p class="name">${feedback.name}</p>
-        `;
-        newCard.setAttribute('onclick', 'selectCard(this)');
-        carousel.appendChild(newCard);
+// B: Função para salvar feedback no Firestore
+function saveFeedbackToFirestore(feedback) {
+    db.collection("feedbacks").add(feedback)
+    .then((docRef) => {
+        console.log("Feedback salvo com ID: ", docRef.id);
+    })
+    .catch((error) => {
+        console.error("Erro ao salvar feedback: ", error);
     });
 }
 
-function removeFeedbackFromStorage(card) {
+// C: Função para carregar feedbacks do Firestore
+function loadFeedbackFromFirestore() {
+    db.collection("feedbacks").get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            const feedback = doc.data();
+            const newCard = document.createElement('div');
+            newCard.className = 'feedback-card';
+            newCard.innerHTML = `
+                <p>${feedback.commentText}</p>
+                <div class="stars">${'★'.repeat(feedback.rating)}${'☆'.repeat(5 - feedback.rating)}</div>
+                <p class="name">${feedback.name}</p>
+            `;
+            newCard.setAttribute('onclick', 'selectCard(this)');
+            carousel.appendChild(newCard);
+        });
+    });
+}
+
+function removeFeedbackFromFirestore(card) {
     const feedbacks = JSON.parse(localStorage.getItem('feedbacks')) || [];
     const commentText = card.querySelector('p').innerText;
     const name = card.querySelector('.name').innerText;
-    
-    const updatedFeedbacks = feedbacks.filter(feedback => 
-        !(feedback.commentText === commentText && feedback.name === name)
-    );
-    localStorage.setItem('feedbacks', JSON.stringify(updatedFeedbacks));
+
+    // Encontrar e remover o feedback do Firestore
+    db.collection("feedbacks")
+        .where("commentText", "==", commentText)
+        .where("name", "==", name)
+        .get()
+        .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                doc.ref.delete().then(() => {
+                    console.log("Feedback removido do Firestore.");
+                });
+            });
+        })
+        .catch((error) => {
+            console.error("Erro ao remover feedback: ", error);
+        });
 }
 
-// Carregar feedbacks e contador ao iniciar a página
+// Carregar feedbacks ao iniciar a página
 window.onload = function() {
-    loadFeedbackFromStorage();
-    loadHeartCount();
+    loadFeedbackFromFirestore();
 };
 
-// Função para alternar o estado do coração
-function toggleHeart(heartElement) {
-    heartElement.classList.toggle('filled'); // Adiciona ou remove a classe 'filled'
-    
-    // Atualiza o contador
-    const heartCountElement = document.getElementById('heart-count');
-    let currentCount = parseInt(heartCountElement.innerText, 10);
-
-    // Verifica se o coração foi preenchido ou desmarcado
-    if (heartElement.classList.contains('filled')) {
-        currentCount++;
-    } else {
-        currentCount--;
-    }
-
-    // Certifique-se de que o contador não fique negativo
-    currentCount = Math.max(currentCount, 0);
-    heartCountElement.innerText = currentCount;
-
-    // Salva o contador no localStorage
-    localStorage.setItem('heartCount', currentCount);
-}
-
-
-// Função para carregar o contador do localStorage
-function loadHeartCount() {
-    const savedCount = localStorage.getItem('heartCount');
-    if (savedCount !== null) {
-        document.getElementById('heart-count').innerText = savedCount;
-
-        // Preenche o coração se o contador for maior que 0
-        if (parseInt(savedCount, 10) > 0) {
-            document.querySelectorAll('.heart').forEach(heart => {
-                heart.classList.add('filled');
-            });
-        }
-    }
-}
 
 
 
