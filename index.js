@@ -246,8 +246,11 @@ function removeFeedbackFromStorage(card) {
     localStorage.setItem('feedbacks', JSON.stringify(updatedFeedbacks));
 }
 
-// Carregar feedbacks ao iniciar a página
-window.onload = loadFeedbackFromStorage;
+// Carregar feedbacks e contador ao iniciar a página
+window.onload = function() {
+    loadFeedbackFromStorage();
+    loadHeartCount();
+};
 
 // Função para alternar o estado do coração
 function toggleHeart(heartElement) {
@@ -283,9 +286,6 @@ function loadHeartCount() {
         }
     }
 }
-
-// Carregar o contador ao iniciar a página
-window.onload = loadHeartCount;
 
 
 
