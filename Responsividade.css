@@ -1,0 +1,143 @@
+@media (min-width:300px) and (max-width:399px){
+  /* Esconde a seção agribo para resoluções pequenas */
+  .agribo{
+      display: none;
+  }
+
+  /* Ajustes da seção SobreAgribô para telas pequenas */
+  .SobreAgribô{
+      background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(imagem-project/robotica-educacional.webp);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      color: white;
+      padding: 50px; /* Reduzido de 100px para 50px */
+  }
+
+  /* Título principal no cabeçalho */
+  #titulo-principal{
+    text-align: center;
+    font-size: 15px;
+    padding-left: 0;
+  }
+
+  /* Título da seção SobreAgribô */
+  #titulo-3{
+    width: 100%; /* Ajuste para usar 100% da largura disponível */
+    text-align: center;
+    padding-bottom: 20px; /* Pequeno ajuste no espaçamento inferior */
+  }
+
+  /* Texto da seção SobreAgribô */
+  #text-agribo{
+    font-size: 16px; /* Tamanho da fonte ajustado para telas pequenas */
+    width: 100%; /* Texto ocupa toda a largura disponível */
+    text-align: justify;
+    padding-right: 0; /* Removeu padding direito extra */
+    padding-left: 0; /* Removeu padding esquerdo extra */
+  }
+
+  /* Imagem dentro da seção SobreAgribô */
+  #img-agribo{
+    width: 300px; /* Tamanho ajustado para telas pequenas */
+    margin-top: 20px; /* Espaçamento superior para separação */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+/* Ajustes de layout para a classe text-cr */
+.text-cr {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza o conteúdo */
+}
+
+/* Seção de "Quem Somos" com layout flex em coluna */
+.pai-quemSomos {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Alinha o conteúdo ao centro */
+  padding: 20px; /* Você pode ajustar este padding se necessário */
+  width: 100%; /* Garante que ocupa a largura total */
+}
+
+/* Ajuste para o texto dentro da seção "Quem Somos" */
+#quemSomos {
+  width: calc(100% - 20px); /* Considera 10px de padding em cada lado */
+  padding: 0 10px; /* Aplica padding lateral */
+}
+
+#quemSomos p {
+  font-size: 16px;
+  text-align: justify;
+  margin: 0; /* Remove margem para evitar quebra indesejada */
+}
+.sobreEquipe img {
+  display: block;
+  margin-top: 2px auto; /* Centraliza a imagem */
+}
+
+  /* Ajuste de imagem na seção "Quem Somos" */
+  #imagemGrupo img {
+    width: 100%; /* Ocupa 100% da largura da tela */
+    height: auto; /* Mantém a proporção */
+    max-width: 300px; /* Limita a largura máxima da imagem */
+    border-radius: 10px;
+  }
+
+
+    .feedback-carousel {
+        display: flex;
+        overflow: hidden;
+        width: 280px;
+        margin: 0 auto;
+        position: relative;
+        height: 200px;
+        right: 55px;
+    }
+
+    /* Formulário para adicionar feedback */
+    #feedback-form,
+    #admin-password {
+        background-color: #ffffff;
+        border: 1px solid #cccccc;
+        padding: 20px 60px;
+        border-radius: 10px;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #feedback-form.hidden,
+    #admin-password.hidden {
+        display: none;
+    }
+
+    #feedback-form textarea,
+    #feedback-form input,
+    #feedback-form select,
+    #admin-password input {
+        margin: 10px 0;
+        padding: 10px;
+        width: 150%;
+        max-width: 300px;
+    }
+
+    #feedback-form button,
+    #admin-password button {
+        background: linear-gradient(260deg, rgba(0, 0, 0, 1) 41%, rgba(255, 0, 0, 1) 100%);
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 15px;
+        cursor: pointer;
+        margin: 5px;
+    }
+}

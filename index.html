@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  </head>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Responsividade.css">
     <title>Site do agribô</title>
 </head>
 <body>
@@ -129,7 +129,7 @@
         <div>
           <p id="text-agribo">O Agribô é um projeto inovador voltado para o público escolar, que une tecnologia avançada e aprendizado prático para demonstrar como cuidar do meio ambiente. Ao transformar aulas em experiências interativas e dinâmicas, o Agribô incentiva as crianças a se tornarem protagonistas na construção de um futuro sustentável, tornando o aprendizado divertido e envolvente. <br> <br> Além de enriquecer o conteúdo escolar, o Agribô se estende aos lares, incentivando os pais a ensinarem ações que promovem a consciência ambiental desde cedo. Juntos, famílias podem explorar a criatividade e descobrir maneiras de ajudar o planeta, moldando as mentes de amanhã para serem agentes de mudança em um mundo mais verde e sustentável.</p>
         </div>
-        <img src="imagem-project/hackers-quebrando-senha-forte-e-verificando-o-codigo-ransomware-na-tela-do-computador-criminosos-executando-software-malicioso-para-invadir-o-servidor-de-banco-de-dados-e-roubar-informacoes-de-p.jpg" width="400px">
+        <img src="imagem-project/hackers-quebrando-senha-forte-e-verificando-o-codigo-ransomware-na-tela-do-computador-criminosos-executando-software-malicioso-para-invadir-o-servidor-de-banco-de-dados-e-roubar-informacoes-de-p.jpg" width="400px" id="img-agribo">
       </div>
     </section>
       <!-- Section sobreEquipe -->
@@ -144,6 +144,51 @@
           </div>
         </div>
     </section>
+
+        <!-- Seção Feedback -->
+        <section class="feedback-container" id="FEEDBACK">
+        <h1 id="titulo-4">Deixe seu Feedback sobre o Agrobô</h1>
+        <div class="feedback-carousel">
+            <div class="feedback-card" onclick="selectCard(this)">
+                <p>O Agrobô é simplesmente incrível!</p>
+                <div class="stars">★★★★★</div>
+                <p class="name">João Silva</p>
+            </div>          
+        </div>
+        <div class="add-feedback-button" onclick="showFeedbackForm()">+</div>
+        <button class="delete-feedback-button" id="img-lixeira" onclick="showAdminPasswordForm()"><img
+                src="imagem-project/lixeira-de-reciclagem.png" width="35px"></button>
+        
+        <div class="heart-container">
+            <span class="heart" onclick="toggleHeart(this)">❤️</span>
+            <span class="heart-count" id="heart-count">0</span>
+        </div>
+    </section>
+
+    <!-- Formulário para adicionar feedback -->
+    <div id="feedback-form" class="hidden">
+        <h2>Adicionar Comentário</h2>
+        <input type="text" id="name" placeholder="Seu nome">
+        <label for="rating" id="Nota">Nota:</label>
+        <select id="rating">
+            <option value="5">★★★★★</option>
+            <option value="4">★★★★☆</option>
+            <option value="3">★★★☆☆</option>
+            <option value="2">★★☆☆☆</option>
+            <option value="1">★☆☆☆☆</option>
+        </select>
+        <textarea id="comment-text" placeholder="Escreva seu comentário"></textarea>
+        <button onclick="addFeedback()">Adicionar</button>
+        <button onclick="hideFeedbackForm()">Cancelar</button>
+    </div>
+
+    <!-- Janela de senha do administrador -->
+    <div id="admin-password" class="hidden">
+        <h2>Senha do Administrador</h2>
+        <input type="password" id="admin-pass" placeholder="Digite a senha">
+        <button onclick="verifyAdminPassword()">Confirmar</button>
+        <button onclick="hideAdminPasswordForm()">Cancelar</button>
+    </div>
 
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>

@@ -123,5 +123,171 @@ function updateLevelMessage(levelMessageDisplay) {
 
 
 
+const carousel = document.querySelector('.feedback-carousel');
+let scrollAmount = 0;
+let selectedCard = null; // Variável para armazenar o card selecionado para deletar
+
+function scrollCarousel() {
+    const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+    scrollAmount += 1;
+    if (scrollAmount >= maxScroll) {
+        scrollAmount = 0; 
+    }
+    carousel.scrollLeft = scrollAmount;
+}
+
+setInterval(scrollCarousel, 20);
+
+function showFeedbackForm() {
+    document.getElementById('feedback-form').classList.remove('hidden');
+}
+
+function hideFeedbackForm() {
+    document.getElementById('feedback-form').classList.add('hidden');
+}
+
+function showAdminPasswordForm() {
+    if (selectedCard === null) {
+        alert("Selecione um comentário para excluir.");
+        return;
+    }
+    document.getElementById('admin-password').classList.remove('hidden');
+}
+
+function hideAdminPasswordForm() {
+    document.getElementById('admin-password').classList.add('hidden');
+}
+
+function selectCard(card) {
+    // Desseleciona o card anterior
+    if (selectedCard) {
+        selectedCard.classList.remove('selected');
+    }
+    // Seleciona o novo card
+    selectedCard = card;
+    selectedCard.classList.add('selected');
+}
+
+function verifyAdminPassword() {
+    const adminPassword = "1234"; // Defina aqui a senha do administrador
+    const enteredPassword = document.getElementById('admin-pass').value;
+
+    if (enteredPassword === adminPassword) {
+        selectedCard.remove();
+        removeFeedbackFromStorage(selectedCard);
+        hideAdminPasswordForm();
+        selectedCard = null; // Reseta a seleção
+    } else {
+        alert("Senha incorreta!");
+    }
+}
+
+function addFeedback() {
+    const commentText = document.getElementById('comment-text').value;
+    const rating = document.getElementById('rating').value;
+    const name = document.getElementById('name').value;
+
+    if (commentText === '' || name === '') {
+        alert('Por favor, preencha todos os campos.');
+        return;
+    }
+
+    const newCard = document.createElement('div');
+    newCard.className = 'feedback-card';
+    newCard.innerHTML = `
+        <p>${commentText}</p>
+        <div class="stars">${'★'.repeat(rating)}${'☆'.repeat(5 - rating)}</div>
+        <p class="name">${name}</p>
+    `;
+    newCard.setAttribute('onclick', 'selectCard(this)');
+
+    carousel.appendChild(newCard);
+
+    // Salvar o feedback no localStorage
+    saveFeedbackToStorage({ commentText, rating, name });
+
+    // Limpar o formulário
+    document.getElementById('comment-text').value = '';
+    document.getElementById('rating').value = '5';
+    document.getElementById('name').value = '';
+
+    hideFeedbackForm();
+}
+
+function saveFeedbackToStorage(feedback) {
+    let feedbacks = JSON.parse(localStorage.getItem('feedbacks')) || [];
+    feedbacks.push(feedback);
+    localStorage.setItem('feedbacks', JSON.stringify(feedbacks));
+}
+
+function loadFeedbackFromStorage() {
+    const feedbacks = JSON.parse(localStorage.getItem('feedbacks')) || [];
+    feedbacks.forEach(feedback => {
+        const newCard = document.createElement('div');
+        newCard.className = 'feedback-card';
+        newCard.innerHTML = `
+            <p>${feedback.commentText}</p>
+            <div class="stars">${'★'.repeat(feedback.rating)}${'☆'.repeat(5 - feedback.rating)}</div>
+            <p class="name">${feedback.name}</p>
+        `;
+        newCard.setAttribute('onclick', 'selectCard(this)');
+        carousel.appendChild(newCard);
+    });
+}
+
+function removeFeedbackFromStorage(card) {
+    const feedbacks = JSON.parse(localStorage.getItem('feedbacks')) || [];
+    const commentText = card.querySelector('p').innerText;
+    const name = card.querySelector('.name').innerText;
+    
+    const updatedFeedbacks = feedbacks.filter(feedback => 
+        !(feedback.commentText === commentText && feedback.name === name)
+    );
+    localStorage.setItem('feedbacks', JSON.stringify(updatedFeedbacks));
+}
+
+// Carregar feedbacks ao iniciar a página
+window.onload = loadFeedbackFromStorage;
+
+// Função para alternar o estado do coração
+function toggleHeart(heartElement) {
+    heartElement.classList.toggle('filled'); // Adiciona ou remove a classe 'filled'
+    
+    // Atualiza o contador
+    const heartCountElement = document.getElementById('heart-count');
+    let currentCount = parseInt(heartCountElement.innerText, 10);
+    
+    if (heartElement.classList.contains('filled')) {
+        currentCount++;
+    } else {
+        currentCount--;
+    }
+    
+    heartCountElement.innerText = currentCount;
+
+    // Salva o contador no localStorage
+    localStorage.setItem('heartCount', currentCount);
+}
+
+// Função para carregar o contador do localStorage
+function loadHeartCount() {
+    const savedCount = localStorage.getItem('heartCount');
+    if (savedCount !== null) {
+        document.getElementById('heart-count').innerText = savedCount;
+
+        // Preenche o coração se o contador for maior que 0
+        if (parseInt(savedCount, 10) > 0) {
+            document.querySelectorAll('.heart').forEach(heart => {
+                heart.classList.add('filled');
+            });
+        }
+    }
+}
+
+// Carregar o contador ao iniciar a página
+window.onload = loadHeartCount;
+
+
+
 
 
