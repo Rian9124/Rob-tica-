@@ -194,19 +194,23 @@
     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"></script>
 
     <script>
+
+        import { initializeApp } from "firebase/app";
+        import { getAnalytics } from "firebase/analytics";
         // Coloque a configuração Firebase do seu projeto aqui
         const firebaseConfig = {
-        apiKey: "API_KEY",
-        authDomain: "PROJECT_ID.firebaseapp.com",
-        projectId: "PROJECT_ID",
-        storageBucket: "PROJECT_ID.appspot.com",
-        messagingSenderId: "SENDER_ID",
-        appId: "APP_ID"
+        apiKey: "AIzaSyBl7A2syC5ItmaeKCAnN68n4tDU2BNPm6k",
+        authDomain: "robotica-f65e1.firebaseapp.com",
+        projectId: "robotica-f65e1",
+        storageBucket: "robotica-f65e1.appspot.com",
+        messagingSenderId: "159865379609",
+        appId: "1:159865379609:web:622634dd1c8abc16378388"
     };
 
     // Inicializar Firebase
     const app = firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
+    const analytics = getAnalytics(app);
     </script>
 
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

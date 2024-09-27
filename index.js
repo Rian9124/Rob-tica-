@@ -285,6 +285,25 @@ window.onload = function() {
 };
 
 
+// Adicionar um documento ao Firestore
+db.collection("feedbacks").add({
+    comment: "Ótimo serviço!",
+    rating: 5,
+    name: "Rian Keven"
+})
+.then(() => {
+    console.log("Feedback adicionado com sucesso!");
+})
+.catch((error) => {
+    console.error("Erro ao adicionar feedback: ", error);
+});
+
+// Ler todos os feedbacks do Firestore
+db.collection("feedbacks").get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+        console.log(`${doc.id} => ${doc.data().comment}`);
+    });
+});
 
 
 
