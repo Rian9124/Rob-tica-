@@ -122,24 +122,69 @@ function updateLevelMessage(levelMessageDisplay) {
 
 
 
+
+
+
+// Inicio do Feedback
+
 const carousel = document.querySelector('.feedback-carousel');
-let heartCount = 0; // Contador de corações
+let scrollAmount = 0;
+let selectedCard = null; // Variável para armazenar o card selecionado para deletar
 
-const firebaseConfig = {
-    apiKey: "AIzaSyBl7A2syC5ItmaeKCAnN68n4tDU2BNPm6k",
-    authDomain: "robotica-f65e1.firebaseapp.com",
-    projectId: "robotica-f65e1",
-    storageBucket: "robotica-f65e1.appspot.com",
-    messagingSenderId: "159865379609",
-    appId: "1:159865379609:web:622634dd1c8abc16378388",
-    measurementId: "G-0J8597LG2X"
-    };
+function scrollCarousel() {
+    const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+    scrollAmount += 1;
+    if (scrollAmount >= maxScroll) {
+        scrollAmount = 0; 
+    }
+    carousel.scrollLeft = scrollAmount;
+}
 
-// Inicializar Firebase
-firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
+setInterval(scrollCarousel, 20);
 
-// Função para adicionar feedback
+function showFeedbackForm() {
+    document.getElementById('feedback-form').classList.remove('hidden');
+}
+
+function hideFeedbackForm() {
+    document.getElementById('feedback-form').classList.add('hidden');
+}
+
+function showAdminPasswordForm() {
+    if (selectedCard === null) {
+        alert("Selecione um comentário para excluir.");
+        return;
+    }
+    document.getElementById('admin-password').classList.remove('hidden');
+}
+
+function hideAdminPasswordForm() {
+    document.getElementById('admin-password').classList.add('hidden');
+}
+
+function selectCard(card) {
+    // Desseleciona o card anterior
+    if (selectedCard) {
+        selectedCard.classList.remove('selected');
+    }
+    // Seleciona o novo card
+    selectedCard = card;
+    selectedCard.classList.add('selected');
+}
+
+function verifyAdminPassword() {
+    const adminPassword = "1234"; // Defina aqui a senha do administrador
+    const enteredPassword = document.getElementById('admin-pass').value;
+
+    if (enteredPassword === adminPassword) {
+        selectedCard.remove();
+        hideAdminPasswordForm();
+        selectedCard = null; // Reseta a seleção
+    } else {
+        alert("Senha incorreta!");
+    }
+}
+
 function addFeedback() {
     const commentText = document.getElementById('comment-text').value;
     const rating = document.getElementById('rating').value;
@@ -161,62 +206,10 @@ function addFeedback() {
 
     carousel.appendChild(newCard);
 
-    // B: Salvar feedback no Firestore
-    saveFeedbackToFirestore({ commentText, rating, name });
-
     // Limpar o formulário
     document.getElementById('comment-text').value = '';
     document.getElementById('rating').value = '5';
     document.getElementById('name').value = '';
 
     hideFeedbackForm();
-}
-
-// B: Função para salvar feedback no Firestore
-function saveFeedbackToFirestore(feedback) {
-    db.collection("feedbacks").add(feedback)
-    .then((docRef) => {
-        console.log("Feedback salvo com ID: ", docRef.id);
-        updateHeartCount();
-    })
-    .catch((error) => {
-        console.error("Erro ao salvar feedback: ", error);
-    });
-}
-
-// C: Função para carregar feedbacks do Firestore
-function loadFeedbackFromFirestore() {
-    db.collection("feedbacks").get().then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-            const feedback = doc.data();
-            const newCard = document.createElement('div');
-            newCard.className = 'feedback-card';
-            newCard.innerHTML = `
-                <p>${feedback.commentText}</p>
-                <div class="stars">${'★'.repeat(feedback.rating)}${'☆'.repeat(5 - feedback.rating)}</div>
-                <p class="name">${feedback.name}</p>
-            `;
-            carousel.appendChild(newCard);
-        });
-    });
-}
-
-// Função para atualizar a contagem de corações
-function updateHeartCount() {
-    heartCount++;
-    document.getElementById('heart-count').innerText = heartCount;
-}
-
-// Carregar feedbacks ao iniciar a página
-window.onload = function() {
-    loadFeedbackFromFirestore();
-};
-
-// Funções para mostrar/ocultar formulário de feedback
-function showFeedbackForm() {
-    document.getElementById('feedback-form').classList.remove('hidden');
-}
-
-function hideFeedbackForm() {
-    document.getElementById('feedback-form').classList.add('hidden');
 }

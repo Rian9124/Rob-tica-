@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="Responsividade.css">
     <title>Site do agribô</title>
@@ -147,50 +145,79 @@
         </div>
     </section>
 
-        <!-- Seção Feedback -->
-        <section class="feedback-container" id="FEEDBACK">
-        <h1 id="titulo-4">Deixe seu Feedback sobre o Agrobô</h1>
+    <!-- Seção Feedback -->
+    <section class="feedback-container" id="FEEDBACK">
+        <br><br><br><br><br>
+        <h1 id="titulo-4">Perguntas frequentes sobre o Agribô</h1>
         <div class="feedback-carousel">
             <div class="feedback-card" onclick="selectCard(this)">
-                <p>O Agrobô é simplesmente incrível!</p>
-                <div class="stars">★★★★★</div>
+                <p>O ambiente da Victor Barber's Shop é incrível! Muito aconchegante e bem decorado. O corte que fiz foi perfeito!</p>
+                <div class="stars">★★★★</div>
                 <p class="name">João Silva</p>
-            </div>          
+            </div>
+            
+            <div class="feedback-card" onclick="selectCard(this)">
+                <p>Adorei o atendimento do Victor. Ele é um barbeiro super profissional e o resultado final foi excelente!</p>
+                <div class="stars">★★★★★</div>
+                <p class="name">Cezar Paulo</p>
+            </div>
+            
+            <div class="feedback-card" onclick="selectCard(this)">
+                <p>Victor Barber's Shop é a melhor barbearia que já frequentei. Ambiente moderno e limpo, e o corte ficou impecável.</p>
+                <div class="stars">★★★★★</div>
+                <p class="name">Carlos Souza</p>
+            </div>
+            
+            <div class="feedback-card" onclick="selectCard(this)">
+                <p>Excelente experiência na Victor Barber's Shop. A equipe é muito atenciosa e o corte de cabelo ficou do jeito que eu queria!</p>
+                <div class="stars">★★★★★</div>
+                <p class="name">João vitor</p>
+            </div>
+            
+            <div class="feedback-card" onclick="selectCard(this)">
+                <p>O ambiente da Victor Barber's Shop é muito agradável e os barbeiros são bastante habilidosos. Recomendo a todos!</p>
+                <div class="stars">★★★★☆</div>
+                <p class="name">Pedro Almeida</p>
+            </div>
+            
+            <div class="feedback-card" onclick="selectCard(this)">
+                <p>Victor Barber's Shop oferece um atendimento de primeira. O corte é feito com muito cuidado e a experiência é ótima.</p>
+                <div class="stars">★★★★★</div>
+                <p class="name">Ricardo Moreira</p>
+            </div>
+            
+            <div class="feedback-card" onclick="selectCard(this)">
+                <p>Ótima barbearia! O ambiente é muito agradável e o corte foi feito com precisão. Voltarei com certeza.</p>
+                <div class="stars">★★★★☆</div>
+                <p class="name">Bruno Pereira</p>
+            </div>
+            
+            <div class="feedback-card" onclick="selectCard(this)">
+                <p>Minha experiência na Victor Barber's Shop foi fantástica. O local é muito bem cuidado e os profissionais são top!</p>
+                <div class="stars">★★★★★</div>
+                <p class="name">Fernando de Oliveira</p>
+            </div>
+            
+            <div class="feedback-card" onclick="selectCard(this)">
+                <p>Adorei o barbeiro! O ambiente é muito moderno e o corte foi feito com muito capricho. Super recomendo!</p>
+                <div class="stars">★★★★☆</div>
+                <p class="name">Lucas Lima</p>
+            </div>
+            
+            <div class="feedback-card" onclick="selectCard(this)">
+                <p>A Victor Barber's Shop é excelente. O corte é sempre perfeito e o ambiente é muito agradável. Não troco por nada!</p>
+                <div class="stars">★★★★★</div>
+                <p class="name">Felipe Souza</p>
+            </div>
+            
+            <div class="feedback-card" onclick="selectCard(this)">
+                <p>Ambiente incrível e corte impecável! A Victor Barber's Shop é definitivamente minha barbearia favorita.</p>
+                <div class="stars">★★★★★</div>
+                <p class="name">Ricardo Santos</p>
+            </div>            
         </div>
-        <div class="add-feedback-button" onclick="showFeedbackForm()">+</div>
-        <button class="delete-feedback-button" id="img-lixeira" onclick="showAdminPasswordForm()"><img
-                src="imagem-project/lixeira-de-reciclagem.png" width="35px"></button>
-        
-        <div class="heart-container">
-            <span class="heart" onclick="toggleHeart(this)">❤️</span>
-            <span class="heart-count" id="heart-count">0</span>
-        </div>                
+        <br><br><br><br><br>
     </section>
-
-    <!-- Formulário para adicionar feedback -->
-    <div id="feedback-form" class="hidden">
-        <h2>Adicionar Comentário</h2>
-        <input type="text" id="name" placeholder="Seu nome">
-        <label for="rating" id="Nota">Nota:</label>
-        <select id="rating">
-            <option value="5">★★★★★</option>
-            <option value="4">★★★★☆</option>
-            <option value="3">★★★☆☆</option>
-            <option value="2">★★☆☆☆</option>
-            <option value="1">★☆☆☆☆</option>
-        </select>
-        <textarea id="comment-text" placeholder="Escreva seu comentário"></textarea>
-        <button onclick="addFeedback()">Adicionar</button>
-        <button onclick="hideFeedbackForm()">Cancelar</button>
-    </div>
-
-    <!-- Janela de senha do administrador -->
-    <div id="admin-password" class="hidden">
-        <h2>Senha do Administrador</h2>
-        <input type="password" id="admin-pass" placeholder="Digite a senha">
-        <button onclick="verifyAdminPassword()">Confirmar</button>
-        <button onclick="hideAdminPasswordForm()">Cancelar</button>
-    </div>
 
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>

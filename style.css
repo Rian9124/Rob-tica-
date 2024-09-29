@@ -489,132 +489,47 @@ label {
 }
 
 .feedback-card {
-  background-color: #1c4881;
-  color: rgb(255, 255, 255);
-  padding: 10px;
-  border-radius: 10px;
-  width: 200px;
-  text-align: center;
-  flex-shrink: 0;
-  margin: 5px;
-  cursor: pointer;
-  overflow: hidden;
+  background-color: #2d6a4f;
+  color: rgb(255, 255, 255); 
+  padding: 15px; 
+  border-radius: 12px; 
+  width: 220px; 
+  text-align: center; 
+  flex-shrink: 0; 
+  margin: 10px; 
+  cursor: pointer; 
+  overflow: hidden; 
+  transition: transform 0.3s, box-shadow 0.3s; 
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.feedback-card.selected {
-  border: 2px solid #FFD700;
+.feedback-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); 
 }
 
 .stars {
-  font-size: 20px;
-  color: #ffcc00;
+  font-size: 22px; /* Aumentar o tamanho das estrelas para melhor visibilidade */
+  color: #ffcc00; /* Cor das estrelas */
   text-shadow: -1px -1px 0 #000,
-  1px -1px 0 #000,
-  -1px 1px 0 #000,
-  1px 1px 0 #000;
+               1px -1px 0 #000,
+               -1px 1px 0 #000,
+               1px 1px 0 #000;
 }
 
-.name {
-  margin-top: 10px;
-}
-
-.add-feedback-button {
-  background-color: #FFA500;
-  color: white;
-  font-size: 24px;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px auto;
-  cursor: pointer;
-}
-
-.add-feedback-button:hover {
-  background-color: #FF8C00;
-}
-
-.delete-feedback-button {
-  position: absolute;
-  margin-bottom: -550px;
-  margin-left: 300px;
-  border: none;
-
-  cursor: pointer;
-  opacity: 20%;
-}
-.delete-feedback-button:hover{
-  background-color: #ffffff;
-}
-
-
-/* Formulário para adicionar feedback */
-#feedback-form,
-#admin-password {
-  background-color: #ffffff;
-  border: 1px solid #cccccc;
-  padding: 20px;
-  border-radius: 10px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#feedback-form.hidden,
-#admin-password.hidden {
-  display: none;
-}
-
-#feedback-form textarea,
-#feedback-form input,
-#feedback-form select,
-#admin-password input {
-  margin: 10px 0;
-  padding: 10px;
-  width: 100%;
-  max-width: 300px;
-}
-
-#feedback-form button,
-#admin-password button {
-  background: linear-gradient(260deg, rgba(0, 0, 0, 1) 41%, rgba(255, 0, 0, 1) 100%);
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin: 5px;
-}
-#titulo-4{
+#titulo-4 {
   margin-bottom: 40px;
-  color: white;
+  color: #2d6a4f; 
   text-align: center;
   width: 300px;
-}
-#Nota{
-  color: #000;
-}
-
-.heart {
-  font-size: 30px;
-  cursor: pointer;
-  color: grey; /* Cor inicial */
-}
-
-.heart.filled {
-  color: red; /* Cor quando preenchido */
-}
-
-.heart-container {
-  display: flex;
-  align-items: center;
-  margin-top: 10px; /* Espaçamento acima do coração */
+  font-size: 24px; 
+  font-weight: bold; 
+  background-color: #e0f7e4;
+  padding: 15px;
+  border: 2px solid #40916c; 
+  border-radius: 15px; 
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif; 
+  position: relative; 
+  top: 0; 
 }
