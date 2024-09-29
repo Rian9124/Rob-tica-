@@ -161,10 +161,10 @@
         <button class="delete-feedback-button" id="img-lixeira" onclick="showAdminPasswordForm()"><img
                 src="imagem-project/lixeira-de-reciclagem.png" width="35px"></button>
         
-                <div class="heart-container">
-                    <span class="heart" onclick="toggleHeart(this)">❤️</span>
-                    <span class="heart-count" id="heart-count">0</span>
-                </div>
+        <div class="heart-container">
+            <span class="heart" onclick="toggleHeart(this)">❤️</span>
+            <span class="heart-count" id="heart-count">0</span>
+        </div>                
     </section>
 
     <!-- Formulário para adicionar feedback -->
@@ -191,42 +191,6 @@
         <button onclick="verifyAdminPassword()">Confirmar</button>
         <button onclick="hideAdminPasswordForm()">Cancelar</button>
     </div>
-    <script>
-        import { initializeApp } from "firebase/app";
-        import { getAnalytics } from "firebase/analytics";
-        // Configurações do Firebase (substitua pelos seus dados)
-        const firebaseConfig = {
-        apiKey: "AIzaSyBl7A2syC5ItmaeKCAnN68n4tDU2BNPm6k",
-        authDomain: "robotica-f65e1.firebaseapp.com",
-        projectId: "robotica-f65e1",
-        storageBucket: "robotica-f65e1.appspot.com",
-        messagingSenderId: "159865379609",
-        appId: "1:159865379609:web:622634dd1c8abc16378388",
-        measurementId: "G-0J8597LG2X"
-        };
-
-        // Inicializa o Firebase
-        const app = firebase.initializeApp(firebaseConfig);
-        const database = firebase.database();
-        const analytics = getAnalytics(app);
-
-        // Referência ao contador no banco de dados
-        const heartCountRef = database.ref('contadorGlobal');
-
-        // Atualiza a exibição do contador quando o valor mudar no banco de dados
-        heartCountRef.on('value', (snapshot) => {
-            const count = snapshot.val() || 0;
-            document.getElementById('heart-count').innerText = count;
-        });
-
-        // Função para incrementar o contador ao clicar no coração
-        function toggleHeart(element) {
-            heartCountRef.once('value').then((snapshot) => {
-                const currentValue = snapshot.val() || 0;
-                heartCountRef.set(currentValue + 1);  // Atualiza o valor no Firebase
-            });
-        }
-    </script>
 
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
