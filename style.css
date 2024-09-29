@@ -491,9 +491,9 @@ label {
 .feedback-card {
   background-color: #2d6a4f;
   color: rgb(255, 255, 255); 
-  padding: 15px; 
+  padding: 10px; 
   border-radius: 12px; 
-  width: 220px; 
+  width: 320px; 
   text-align: center; 
   flex-shrink: 0; 
   margin: 10px; 
