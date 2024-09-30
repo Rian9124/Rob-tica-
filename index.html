@@ -27,176 +27,214 @@
           ROBÓTICA</h1>
       </nav>
       
-      <!-- Section agribô -->
-      <section class="agribo" id="hidden">
-        <h1 id="titulo-1">Nos ajude a salvar o planeta através do Agribô</h1>
-        <div class="agroPai">
-          <div class="container">
-              <div class="plant-box">
-                  <label for="nome">Qual é o seu Nome: </label>
-                  <input type="text" placeholder="Digite seu nome" id="name-input">
-                  <label for="tree-count">Quantas árvores você plantou?</label>
-                  <input type="number" id="tree-input" placeholder="Digite um número de 0 a 10">
-                  <button id="plant-button" onclick="moveTruck()">Salvar o Planeta</button>
-                  <div id="total-trees">Total de Árvores Plantadas: <div id="contador">0</div></div>
-                  <div id="message" class="message">Você está ajudando o planeta</div>
+      <div class="pai">
+          <!-- Section agribô -->
+          <section class="agribo" id="hidden">
+            <h1 id="titulo-1">Nos ajude a salvar o planeta através do Agribô</h1>
+            <div class="agroPai">
+              <div class="container">
+                  <div class="plant-box">
+                      <label for="nome">Qual é o seu Nome: </label>
+                      <input type="text" placeholder="Digite seu nome" id="name-input">
+                      <label for="tree-count">Quantas árvores você plantou?</label>
+                      <input type="number" id="tree-input" placeholder="Digite um número de 0 a 10">
+                      <button id="plant-button" onclick="moveTruck()">Salvar o Planeta</button>
+                      <div id="total-trees">Total de Árvores Plantadas: <div id="contador">0</div></div>
+                      <div id="message" class="message">Você está ajudando o planeta</div>
+                  </div>
               </div>
-          </div>
-          <div class="progress-bar">
-              <div id="truck" class="truck"></div>
-          </div>
-          <div class="caixa-principal">
-            <div class="message-box"><span id="thank-you-message">Graças a você</span></div>
-            <div class="mensagem-lv">
-              <div id="xp-level">Nível de XP: 1</div>
-              <abbr title="Use o Agribô para ganhar XP e subir de Nível."><img src="imagem-project/sinal-de-interrogacao.png" width="20px" id="icon-caixa"></abbr>
-              <div id="level-message">O planeta está começando a ver uma estrada para a sustentabilidade.</div>
-          </div>
-          </div>
-          <div id="carouselNiveis" class="carousel slide custom-carousel" data-bs-ride="carousel">
+              <div class="progress-bar">
+                  <div id="truck" class="truck"></div>
+              </div>
+              <div class="caixa-principal">
+                <div class="message-box"><span id="thank-you-message">Graças a você</span></div>
+                <div class="mensagem-lv">
+                  <div id="xp-level">Nível de XP: 1</div>
+                  <abbr title="Use o Agribô para ganhar XP e subir de Nível."><img src="imagem-project/sinal-de-interrogacao.png" width="20px" id="icon-caixa"></abbr>
+                  <div id="level-message">O planeta está começando a ver uma estrada para a sustentabilidade.</div>
+              </div>
+              </div>
+              <div id="carouselNiveis" class="carousel slide custom-carousel" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselNiveis" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Nível 2"></button>
+                    <button type="button" data-bs-target="#carouselNiveis" data-bs-slide-to="1" aria-label="Nível 3"></button>
+                    <button type="button" data-bs-target="#carouselNiveis" data-bs-slide-to="2" aria-label="Nível 4"></button>
+                    <button type="button" data-bs-target="#carouselNiveis" data-bs-slide-to="3" aria-label="Nível 5"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="caixa-level">
+                            <h3>Nível 2: A conscientização sobre o meio ambiente está crescendo.</h3>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="caixa-level">
+                            <h3>Nível 3: Inovações sustentáveis estão se tornando comuns.</h3>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="caixa-level">
+                            <h3>Nível 4: As comunidades estão se unindo em prol da sustentabilidade.</h3>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="caixa-level">
+                            <h3>Nível 5: Parabéns! Você alcançou o máximo nível de consciência sustentável!</h3>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselNiveis" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselNiveis" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Próximo</span>
+                </button>
+            </div>
+          
+            </div>
+          <h1 id="titulo-2">Benefícios de Suas Ações em Prol do nosso Planeta</h1>
+          <div id="carouselExampleIndicators" class="carousel slide custom-carousel"> <!-- Mudança aqui -->
             <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselNiveis" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Nível 2"></button>
-                <button type="button" data-bs-target="#carouselNiveis" data-bs-slide-to="1" aria-label="Nível 3"></button>
-                <button type="button" data-bs-target="#carouselNiveis" data-bs-slide-to="2" aria-label="Nível 4"></button>
-                <button type="button" data-bs-target="#carouselNiveis" data-bs-slide-to="3" aria-label="Nível 5"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <div class="caixa-level">
-                        <h3>Nível 2: A conscientização sobre o meio ambiente está crescendo.</h3>
-                    </div>
+                    <img src="imagem-project/1984cd92f5bb1e9fb821e85977b401b5.jpg" class="d-block" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <div class="caixa-level">
-                        <h3>Nível 3: Inovações sustentáveis estão se tornando comuns.</h3>
-                    </div>
+                    <img src="imagem-project/2d014a119c875d194ab7631460fa598a.jpg" class="d-block" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <div class="caixa-level">
-                        <h3>Nível 4: As comunidades estão se unindo em prol da sustentabilidade.</h3>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="caixa-level">
-                        <h3>Nível 5: Parabéns! Você alcançou o máximo nível de consciência sustentável!</h3>
-                    </div>
+                    <img src="imagem-project/d659ae3259b3c7e8af9eb233be6ec3b1.jpg" class="d-block" alt="...">
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselNiveis" data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Anterior</span>
+                <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselNiveis" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Próximo</span>
+                <span class="visually-hidden">Next</span>
             </button>
-        </div>
-             
-        </div>
-      <h1 id="titulo-2">Benefícios de Suas Ações em Prol do nosso Planeta</h1>
-      <div id="carouselExampleIndicators" class="carousel slide custom-carousel"> <!-- Mudança aqui -->
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="imagem-project/1984cd92f5bb1e9fb821e85977b401b5.jpg" class="d-block" alt="...">
+              </div>
+          </section>
+          
+          <section class="SobreAgribô">
+            <h1 id="titulo-3">O Agribô: Transformando a Educação e o Futuro do Planeta</h1>
+            <div class="text-cr">
+            <div>
+              <p id="text-agribo">O Agribô é um projeto inovador voltado para o público escolar, que une tecnologia avançada e aprendizado prático para demonstrar como cuidar do meio ambiente. Ao transformar aulas em experiências interativas e dinâmicas, o Agribô incentiva as crianças a se tornarem protagonistas na construção de um futuro sustentável, tornando o aprendizado divertido e envolvente. <br> <br> Além de enriquecer o conteúdo escolar, o Agribô se estende aos lares, incentivando os pais a ensinarem ações que promovem a consciência ambiental desde cedo. Juntos, famílias podem explorar a criatividade e descobrir maneiras de ajudar o planeta, moldando as mentes de amanhã para serem agentes de mudança em um mundo mais verde e sustentável.</p>
             </div>
-            <div class="carousel-item">
-                <img src="imagem-project/2d014a119c875d194ab7631460fa598a.jpg" class="d-block" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="imagem-project/d659ae3259b3c7e8af9eb233be6ec3b1.jpg" class="d-block" alt="...">
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-    
-      </section>
-      
-      <section class="SobreAgribô">
-        <h1 id="titulo-3">O Agribô: Transformando a Educação e o Futuro do Planeta</h1>
-        <div class="text-cr">
-        <div>
-          <p id="text-agribo">O Agribô é um projeto inovador voltado para o público escolar, que une tecnologia avançada e aprendizado prático para demonstrar como cuidar do meio ambiente. Ao transformar aulas em experiências interativas e dinâmicas, o Agribô incentiva as crianças a se tornarem protagonistas na construção de um futuro sustentável, tornando o aprendizado divertido e envolvente. <br> <br> Além de enriquecer o conteúdo escolar, o Agribô se estende aos lares, incentivando os pais a ensinarem ações que promovem a consciência ambiental desde cedo. Juntos, famílias podem explorar a criatividade e descobrir maneiras de ajudar o planeta, moldando as mentes de amanhã para serem agentes de mudança em um mundo mais verde e sustentável.</p>
-        </div>
-        <img src="imagem-project/hackers-quebrando-senha-forte-e-verificando-o-codigo-ransomware-na-tela-do-computador-criminosos-executando-software-malicioso-para-invadir-o-servidor-de-banco-de-dados-e-roubar-informacoes-de-p.jpg" width="400px" id="img-agribo">
-      </div>
-    </section>
-      <!-- Section sobreEquipe -->
-      <section class="sobreEquipe">
-        <div class="pai-quemSomos">
-          <div id="quemSomos">
-            <h1>Quem Somos</h1>
-            <p>Somos três adolescentes com diferentes paixões e talentos, mas unidos por um objetivo em comum. Dois de nós estão iniciando suas jornadas no mundo da programação, fascinados pela criação e desenvolvimento de soluções tecnológicas. O terceiro é apaixonado por projetos malucos e pelo universo automobilístico. No início deste ano, nosso professor nos desafiou a participar de um projeto de robótica, uma oportunidade para aprimorar nossas habilidades e explorar nossa criatividade. Além de nos preparar para o mercado, esse projeto seria uma maneira de fechar nosso último ano escolar com chave de ouro, deixando uma marca significativa em nossos currículos. Abraçamos essa chance com entusiasmo, e assim nasceu o Agribô.</p>
+            <img src="imagem-project/hackers-quebrando-senha-forte-e-verificando-o-codigo-ransomware-na-tela-do-computador-criminosos-executando-software-malicioso-para-invadir-o-servidor-de-banco-de-dados-e-roubar-informacoes-de-p.jpg" width="400px" id="img-agribo">
           </div>
-          <div id="imagemGrupo">
-              <img src="imagem-project/imagem de cria .jpg" width="500px" class="img-fluid" style="border-radius: 10px;">
-          </div>
-        </div>
-    </section>
-
-    <!-- Seção Feedback -->
-    <section class="feedback-container" id="FEEDBACK">
-        <br><br><br><br><br>
-        <h1 id="titulo-4">Perguntas frequentes sobre o Agribô</h1>
-        <div class="feedback-carousel">
+              </section>
+          <!-- Section sobreEquipe -->
+          <section class="sobreEquipe">
+            <div class="pai-quemSomos">
+              <div id="quemSomos">
+                <h1>Quem Somos</h1>
+                <p>Somos três adolescentes com diferentes paixões e talentos, mas unidos por um objetivo em comum. Dois de nós estão iniciando suas jornadas no mundo da programação, fascinados pela criação e desenvolvimento de soluções tecnológicas. O terceiro é apaixonado por projetos malucos e pelo universo automobilístico. No início deste ano, nosso professor nos desafiou a participar de um projeto de robótica, uma oportunidade para aprimorar nossas habilidades e explorar nossa criatividade. Além de nos preparar para o mercado, esse projeto seria uma maneira de fechar nosso último ano escolar com chave de ouro, deixando uma marca significativa em nossos currículos. Abraçamos essa chance com entusiasmo, e assim nasceu o Agribô.</p>
+              </div>
+              <div id="imagemGrupo">
+                  <img src="imagem-project/imagem de cria .jpg" width="500px" class="img-fluid" style="border-radius: 10px;">
+              </div>
+            </div>
+              </section>
+          
+           <!-- Seção Feedback -->
+           <section class="feedback-container" id="FEEDBACK">
+              <h1 id="titulo-4">Perguntas frequentes sobre o Agribô</h1>
+              <div class="feedback-carousel">
             <div class="feedback-card" onclick="selectCard(this)">
                 <p><strong>O que é o Agribô?</strong></p>
                 <p>O Agribô é um projeto inovador voltado para o público escolar que une tecnologia avançada e aprendizado prático para demonstrar como cuidar do meio ambiente.</p>
             </div>
-            
+          
             <div class="feedback-card" onclick="selectCard(this)">
                 <p><strong>Qual é o objetivo principal do Agribô?</strong></p>
                 <p>O objetivo do Agribô é incentivar as crianças a se tornarem protagonistas na construção de um futuro sustentável, tornando o aprendizado divertido e envolvente.</p>
             </div>
-            
+          
             <div class="feedback-card" onclick="selectCard(this)">
                 <p><strong>Como o Agribô envolve os pais no processo de aprendizado?</strong></p>
                 <p>O Agribô se estende aos lares, incentivando os pais a ensinarem ações que promovem a consciência ambiental desde cedo.</p>
             </div>
-            
+          
             <div class="feedback-card" onclick="selectCard(this)">
                 <p><strong>Quem está por trás do Agribô?</strong></p>
                 <p>O Agribô foi criado por três adolescentes com diferentes paixões e talentos, mas unidos por um objetivo em comum.</p>
             </div>
-            
+          
             <div class="feedback-card" onclick="selectCard(this)">
                 <p><strong>Qual é a importância de ensinar crianças sobre sustentabilidade?</strong></p>
                 <p>Ensinar crianças sobre sustentabilidade é fundamental para moldar as mentes de amanhã e prepará-las para construir um mundo mais sustentável.</p>
             </div>
-            
+          
             <div class="feedback-card" onclick="selectCard(this)">
                 <p><strong>Que tipo de experiências interativas o Agribô oferece?</strong></p>
                 <p>O Agribô oferece aulas que se transformam em experiências interativas e dinâmicas para enriquecer o conteúdo escolar.</p>
             </div>
-            
+          
             <div class="feedback-card" onclick="selectCard(this)">
                 <p><strong>Qual é o papel da tecnologia no Agribô?</strong></p>
                 <p>A tecnologia avançada é utilizada para demonstrar como cuidar do meio ambiente, tornando o aprendizado mais envolvente e prático.</p>
             </div>
-            
+          
             <div class="feedback-card" onclick="selectCard(this)">
                 <p><strong>Como o Agribô contribui para o currículo escolar?</strong></p>
                 <p>O Agribô enriquece o conteúdo escolar, transformando o aprendizado em algo divertido e prático.</p>
             </div>
-            
+          
             <div class="feedback-card" onclick="selectCard(this)">
                 <p><strong>Quais habilidades os participantes do Agribô podem desenvolver?</strong></p>
                 <p>Os participantes podem desenvolver habilidades de programação, criatividade e consciência ambiental, além de se prepararem para o mercado.</p>
             </div>                      
-        </div>
-    </section>
-
+            </div>  
+            <div>
+                <h1 id="titulo-5">deixe seu fedback sobre o Agribô</h1>
+                <div class="add-feedback-button" onclick="showFeedbackForm()">+</div>
+                <h1 id="titulo-5">Número de Respostas: <span id="respostas"></span></h1>
+            </div>
+            <!-- Modal oculto -->
+            <div id="feedback-modal" class="modal hidden">
+                <div class="modal-content">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe9nTsqH_etwjfiQ5Q3CFWbj522JSOEYRb_mH-bvgs_0nCFhg/viewform?embedded=true" width="350" height="545" frameborder="0" marginheight="0" marginwidth="0" id="iframe-form ">Carregando…</iframe>
+                    <span class="close-button" onclick="hideFeedbackForm()">Voltar</span>
+                </div>
+            </div>
+              <br><br><br><br><br>
+          </section>
+      </div>
+    <script>
+        // Substitua pelos seus valores:
+        const sheetID = '1_fAP6AgJqQbRXh_MSXx6CGKuZy_bjI2j6tuRkzvwje0';
+        const apiKey = 'AIzaSyDgdHS1GmWpgAYxLtlSjJwzFXMai1q60uI';
+        const range = 'A1:A'; // Coluna onde as respostas são armazenadas
+        const intervaloAtualizacao = 30000; // Tempo de atualização em milissegundos (30 segundos)
+    
+        async function obterNumeroDeRespostas() {
+          const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetID}/values/${range}?key=${apiKey}`;
+    
+          try {
+            const response = await fetch(url);
+            const data = await response.json();
+            const numeroDeRespostas = data.values.length - 1; // Subtraindo 1 para ignorar o cabeçalho
+            document.getElementById('respostas').innerText = numeroDeRespostas;
+          } catch (error) {
+            console.error('Erro ao obter respostas:', error);
+          }
+        }
+    
+        // Chamar a função uma vez quando a página carrega
+        obterNumeroDeRespostas();
+    
+        // Atualizar automaticamente a cada 30 segundos
+        setInterval(obterNumeroDeRespostas, intervaloAtualizacao);
+      </script>
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

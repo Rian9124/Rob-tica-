@@ -1,4 +1,21 @@
 @media (min-width:200px) and (max-width:599px){
+
+  .pai{
+    display: flex;
+    flex-direction: column;
+  }
+  .feedback-container {
+    order: 1; /* Move a seção de feedback para o topo */
+  }
+
+  .SobreAgribô {
+    order: 2;
+  }
+
+  .sobreEquipe {
+    order: 3;
+  }
+
   /* Esconde a seção agribo para resoluções pequenas */
   .agribo{
       display: none;

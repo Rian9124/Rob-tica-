@@ -129,7 +129,6 @@ function updateLevelMessage(levelMessageDisplay) {
 
 const carousel = document.querySelector('.feedback-carousel');
 let scrollAmount = 0;
-let selectedCard = null; // Variável para armazenar o card selecionado para deletar
 
 function scrollCarousel() {
     const maxScroll = carousel.scrollWidth - carousel.clientWidth;
@@ -139,77 +138,15 @@ function scrollCarousel() {
     }
     carousel.scrollLeft = scrollAmount;
 }
-
 setInterval(scrollCarousel, 20);
 
+
 function showFeedbackForm() {
-    document.getElementById('feedback-form').classList.remove('hidden');
+    // Mostra o modal
+    document.getElementById('feedback-modal').classList.add('show');
 }
 
 function hideFeedbackForm() {
-    document.getElementById('feedback-form').classList.add('hidden');
-}
-
-function showAdminPasswordForm() {
-    if (selectedCard === null) {
-        alert("Selecione um comentário para excluir.");
-        return;
-    }
-    document.getElementById('admin-password').classList.remove('hidden');
-}
-
-function hideAdminPasswordForm() {
-    document.getElementById('admin-password').classList.add('hidden');
-}
-
-function selectCard(card) {
-    // Desseleciona o card anterior
-    if (selectedCard) {
-        selectedCard.classList.remove('selected');
-    }
-    // Seleciona o novo card
-    selectedCard = card;
-    selectedCard.classList.add('selected');
-}
-
-function verifyAdminPassword() {
-    const adminPassword = "1234"; // Defina aqui a senha do administrador
-    const enteredPassword = document.getElementById('admin-pass').value;
-
-    if (enteredPassword === adminPassword) {
-        selectedCard.remove();
-        hideAdminPasswordForm();
-        selectedCard = null; // Reseta a seleção
-    } else {
-        alert("Senha incorreta!");
-    }
-}
-
-function addFeedback() {
-    const commentText = document.getElementById('comment-text').value;
-    const rating = document.getElementById('rating').value;
-    const name = document.getElementById('name').value;
-
-    if (commentText === '' || name === '') {
-        alert('Por favor, preencha todos os campos.');
-        return;
-    }
-
-    const newCard = document.createElement('div');
-    newCard.className = 'feedback-card';
-    newCard.innerHTML = `
-        <p>${commentText}</p>
-        <div class="stars">${'★'.repeat(rating)}${'☆'.repeat(5 - rating)}</div>
-        <p class="name">${name}</p>
-    `;
-    newCard.setAttribute('onclick', 'selectCard(this)');
-
-    carousel.appendChild(newCard);
-
-    // Limpar o formulário
-    document.getElementById('comment-text').value = '';
-    document.getElementById('rating').value = '5';
-    document.getElementById('name').value = '';
-
-    hideFeedbackForm();
+    // Esconde o modal
+    document.getElementById('feedback-modal').classList.remove('show');
 }

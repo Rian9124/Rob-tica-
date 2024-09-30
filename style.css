@@ -113,6 +113,21 @@ body {
 
 
 
+.agribo{
+  order: 1;
+}
+
+.SobreAgribô {
+  order: 2;
+}
+
+.sobreEquipe {
+  order: 3;
+}
+.feedback-container {
+  order: 4; /* Move a seção de feedback para o topo */
+}
+
 
 
 nav{
@@ -472,6 +487,19 @@ label {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 50px;
+}
+/* Feedback */
+
+.feedback-container {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(imagem-project/7d6b5732171881.5671d742d3351.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   padding: 100px;
 }
 
@@ -532,4 +560,89 @@ label {
   font-family: 'Arial', sans-serif; 
   position: relative; 
   top: 0; 
+}
+#titulo-5{
+  margin-top: 40px;
+  color: #2d6a4f; 
+  text-align: center;
+  width: 300px;
+  font-size: 24px; 
+  font-weight: bold; 
+  background-color: #e0f7e4;
+  padding: 15px;
+  border: 2px solid #40916c; 
+  border-radius: 15px; 
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif; 
+  position: relative; 
+  top: 0; 
+}
+.add-feedback-button {
+  background-color: #FFA500;
+  color: white;
+  font-size: 24px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  cursor: pointer;
+}
+
+.add-feedback-button:hover {
+  background-color: #FF8C00;
+}
+.titulo-iframe {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #2d6a4f;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  background-color: #e0f7e4;
+  padding: 15px;
+  border: 2px solid #40916c;
+  border-radius: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Estilos para o modal */
+.modal {
+  display: none; /* Modal oculto por padrão */
+  position: fixed;
+  z-index: 1000;
+  left: 10px;
+  top: 0;
+  width: 94%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Botão "Voltar" */
+.close-button {
+  background-color: #f44336;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: absolute;
+  top: 550px;
+  right: 10px;
+}
+
+.close-button:hover {
+  background-color: #d32f2f;
+}
+
+/* Classe que exibe o modal */
+.modal.show {
+  display: flex;
 }
